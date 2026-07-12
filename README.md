@@ -13,7 +13,7 @@ rule-providers:
   wuwa-global:
     type: http
     behavior: classical
-    url: "https://raw.githubusercontent.com/Rainerhu/wuthering-waves-global-proxy/main/wuthering-waves-global.list"
+    url: "https://raw.githubusercontent.com/Rainerhu/wuthering-waves-global-proxy/master/wuthering-waves-global.list"
     path: ./ruleset/wuwa-global.list
     interval: 86400
 
