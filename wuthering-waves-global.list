@@ -1,0 +1,47 @@
+# ===================================================================
+# 鸣潮 国际服 (Wuthering Waves Global) 代理分流规则
+# 格式: Clash / Mihomo classical rule-provider (behavior: classical)
+# 用途: 命中以下规则的流量走代理出口
+# 更新日期: 2026-07-12
+# 说明: 覆盖 kurogame 官方启动器、账号、登录网关、数据上报、CDN 等域名。
+#       游戏对战 (UDP) 服务器 IP 未公开且随区域变化，域名规则主要保证
+#       登录/更新/资源下载走代理；若对战延迟异常，需按 TUN + 进程规则补充。
+# ===================================================================
+
+# ---------- 主域名 (按后缀整段代理) ----------
+DOMAIN-SUFFIX,kurogame.com
+DOMAIN-SUFFIX,kurogame.net
+DOMAIN-SUFFIX,kurogame.xyz
+DOMAIN-SUFFIX,kurogames.com
+DOMAIN-SUFFIX,kurogames.net
+DOMAIN-SUFFIX,kurogames-global.com
+
+# ---------- 关键子域 (显式列出，便于排查) ----------
+# 账号 / 官网 / 登录
+DOMAIN,account.kurogames.com
+DOMAIN,wutheringwaves.kurogame.com
+DOMAIN,wutheringwaves.kurogames.com
+# 启动器 / 游戏分发
+DOMAIN,gamestarter.kurogame.com
+DOMAIN,gamestarter.kurogame.net
+DOMAIN,alicdn-gamestarter.kurogame.com
+# CDN 资源 (公告 / 素材 / 更新)
+DOMAIN,cdn-mingchao.kurogame.com
+DOMAIN,hw-media-cdn-mingchao.kurogame.com
+# 数据上报 / 日志 (新加坡节点)
+DOMAIN,datareceiver.kurogame.xyz
+DOMAIN,qcloud-sg-datareceiver.kurogame.xyz
+DOMAIN,aki-gb-sdklog.kurogames.net
+# 全局网关 / 服务
+DOMAIN,startorch.kurogames-global.com
+DOMAIN,tillwemeetagain.kurogames-global.com
+
+# ---------- 关键词兜底 (防止新增子域漏网) ----------
+DOMAIN-KEYWORD,kurogame
+DOMAIN-KEYWORD,kurogames
+DOMAIN-KEYWORD,wutheringwaves
+DOMAIN-KEYWORD,mingchao
+
+# ---------- 第三方分析 (可选，按需保留/删除) ----------
+# 注: appsflyer 为通用归因 SDK，非鸣潮专用，如不想全走代理可注释掉
+# DOMAIN-SUFFIX,appsflyer.com
